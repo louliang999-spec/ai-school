@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 学习工作台 · 一台电脑即一所学校</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 启动守卫（普通脚本，必须在 main.js 之前） ===== -->
+  <script src="js/boot-guard.js"></script>
+
+  <!-- ===== 启动中遮罩 ===== -->
+  <div id="loading" class="loading">
+    <div class="loading-inner">
+      <div class="loading-logo">🏫</div>
+      <div id="loadingText">正在打开 AI 学习工作台…</div>
+    </div>
+  </div>
+
+  <!-- ===== 错误框（boot-guard 用） ===== -->
+  <div id="errbox" class="errbox" hidden></div>
+
+  <!-- ===== 顶栏 ===== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="brand">🏫 AI 学习工作台</span>
+      <span class="brand-sub">一台电脑即一所学校</span>
+    </div>
+    <div class="topbar-right">
+      <label class="topbar-field">
+        学段
+        <select id="stageSelect">
+          <option value="primary">小学</option>
+          <option value="junior">初中</option>
+          <option value="senior">高中</option>
+        </select>
+      </label>
+      <label class="topbar-field">
+        当前老师
+        <select id="teacherSelect"></select>
+      </label>
+      <button id="navExportBtn" class="btn btn-accent" type="button">📤 导出已批改试卷</button>
+    </div>
+  </header>
+
+  <!-- ===== 页签导航 ===== -->
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-section="home" type="button">🏫 校门口</button>
+    <button class="tab" data-section="teachers" type="button">🧑‍🏫 师资</button>
+    <button class="tab" data-section="desk" type="button">📖 AI 学习课桌</button>
+    <button class="tab" data-section="tools" type="button">🎨 教具生成</button>
+    <button class="tab" data-section="startup" type="button">🚀 创业工坊</button>
+    <button class="tab" data-section="profile" type="button">📊 学习画像</button>
+    <button class="tab" data-section="oral" type="button">🗣 英语口语</button>
+  </nav>
+
+  <!-- ===== 主区域：7 个页签 section ===== -->
+  <main class="main" id="main">
+    <section id="section-home" class="section active"></section>
+    <section id="section-teachers" class="section"></section>
+    <section id="section-desk" class="section"></section>
+    <section id="section-tools" class="section"></section>
+    <section id="section-startup" class="section"></section>
+    <section id="section-profile" class="section"></section>
+    <section id="section-oral" class="section"></section>
+  </main>
+
+  <!-- ===== 全局容器：toast / 弹窗 / 打印视图 ===== -->
+  <div id="toastBox" class="toast-box"></div>
+  <div id="modalBox" class="modal-mask" hidden></div>
+  <div id="printView" class="print-view"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
